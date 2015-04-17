@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
+  resources :role
+  resources :usuario_rol
   resources :usuario
-  resources :item
-  resources :factura
-  resources :usuario
-  resources :producto
   resources :cliente
+  resources :factura
+  resources :item
+  resources :producto
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
