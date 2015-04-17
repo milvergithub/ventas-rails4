@@ -1,0 +1,35 @@
+<div class="panel panel-default">
+  <%= link_to "new client", new_cliente_path, :class => "btn btn-success" %>
+</div>
+<div class="panel panel-primary">
+  <!-- Default panel contents -->
+  <div class="panel-heading">List Clientes</div>
+  <div class="panel-body">
+    <table class="table table-bordered">
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido Paterno</th>
+        <th>Apellido Materno</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+      <% @clientes.each do |cliente|
+      %>
+          <tr>
+            <td><%= cliente.nombre %></td>
+            <td><%= cliente.ape_pat %></td>
+            <td><%= cliente.ape_mat %></td>
+            <td><%= link_to "", cliente_path(cliente),:class => "glyphicon glyphicon-eye-open" %></td>
+            <td><%= link_to "", edit_cliente_path(cliente),:class => "glyphicon glyphicon-pencil" %></td>
+            <td><%= link_to "", cliente_path(cliente),
+                            method: :delete,
+                            data: {confirm: 'Realmente quiere eliminar...??'},:class => "glyphicon glyphicon-trash" %></td>
+          </tr>
+      <%
+         end %>
+    </table>
+    <%= will_paginate @clientes, :container => false %>
+  </div>
+  <div class="panel panel-footer">Clientes que se encuentan registrados actualmente</div>
+</div>

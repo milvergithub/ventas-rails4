@@ -1,0 +1,43 @@
+<div class="panel panel-default">
+  <%= link_to "add usuario", {controller: "usuario", action: "new"},:class => "btn btn-success" %>
+</div>
+<div class="panel panel-primary">
+  <!-- Default panel contents -->
+  <div class="panel-heading">List Usuarios</div>
+  <div class="panel-body">
+    <table class="table table-bordered">
+      <tr>
+        <th>Nombres</th>
+        <th>Apellido Paterno</th>
+        <th>Apellido Materno</th>
+        <th>Email</th>
+        <th>Fecha Nac</th>
+        <th>Telefono</th>
+        <th>usuario</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+      <% @usuarios.each do |usuario|
+      %>
+          <tr>
+            <td><%= usuario.nombres %></td>
+            <td><%= usuario.ape_pat %></td>
+            <td><%= usuario.ape_mat %></td>
+            <td><%= usuario.email %></td>
+            <td><%= usuario.fecha_nacimiento %></td>
+            <td><%= usuario.telefono %></td>
+            <td><%= usuario.login %></td>
+            <td><%= link_to "", usuario_path(usuario),:class => "glyphicon glyphicon-eye-open" %></td>
+            <td><%= link_to "", edit_usuario_path(usuario),:class => "glyphicon glyphicon-pencil" %></td>
+            <td><%= link_to "", usuario_path(usuario),
+                            method: :delete,
+                            data: {confirm: 'Realmente quiere eliminar...??'},:class => "glyphicon glyphicon-trash" %></td>
+          </tr>
+      <%
+         end %>
+    </table>
+    <%= will_paginate @usuarios, :container => false %>
+  </div>
+  <div class="panel panel-footer">Usuarios que se encuentan registrados actualmente</div>
+</div>
