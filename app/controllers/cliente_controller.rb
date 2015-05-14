@@ -1,6 +1,6 @@
 class ClienteController < ApplicationController
   def index
-    @clientes=Cliente.paginate(:page => params[:page], :per_page => 5)
+    @clientes=Cliente.paginate(:page => params[:page], :per_page => 10)
   end
 
   def new

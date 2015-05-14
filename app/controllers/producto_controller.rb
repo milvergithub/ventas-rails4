@@ -1,6 +1,6 @@
 class ProductoController < ApplicationController
   def index
-    @productos=Producto.paginate(:page => params[:page], :per_page => 5)
+    @productos=Producto.paginate(:page => params[:page], :per_page => 10)
   end
 
   def new

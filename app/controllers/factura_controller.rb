@@ -1,6 +1,6 @@
 class FacturaController < ApplicationController
   def index
-    @facturas=Factura.paginate(:page => params[:page], :per_page => 5)
+    @facturas=Factura.paginate(:page => params[:page], :per_page => 10)
   end
 
   def new
